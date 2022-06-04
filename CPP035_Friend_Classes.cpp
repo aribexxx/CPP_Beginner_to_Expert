@@ -20,10 +20,16 @@ public:
     * ABC can access the private and protected
     * members of XYZ class.
     */
-   friend class ABC;
+public:
+   void disp(ABC abc){
+         //  cout<<abc.abcPriv<<endl; XYZ think it is friend with ABC, but not vise versa, so XYZ could not access ABC private variable.
+   }
+   friend class ABC; 
 };
 
 class ABC {
+private:
+   int abcPriv= 100; 
 public:
    void disp(XYZ obj){
       cout<<obj.message<<endl;
